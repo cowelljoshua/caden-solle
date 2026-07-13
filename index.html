@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Caden Solle — Mechanical Engineering Portfolio</title>
+<meta name="description" content="Portfolio of Caden Solle, Honors Mechanical Engineering student at Liberty University. UAS, aerospace, and defense technology projects.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0e13;
+  --bg-soft:#11151d;
+  --card:#151a24;
+  --card-2:#1a2130;
+  --line:#242c3d;
+  --text:#e8ecf4;
+  --muted:#93a0b4;
+  --accent:#f5a623;
+  --accent-2:#ffd27a;
+  --radius:14px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;line-height:1.6;font-size:16px}
+h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;line-height:1.15}
+img{max-width:100%;display:block}
+a{color:var(--accent);text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+
+/* ---------- Nav ---------- */
+nav{position:sticky;top:0;z-index:50;background:rgba(11,14,19,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.15rem;color:var(--text);letter-spacing:.02em}
+.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{color:var(--muted);font-size:.92rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:10px;font-weight:600;font-size:.92rem;transition:all .2s;border:1px solid transparent;cursor:pointer}
+.btn-primary{background:var(--accent);color:#14100a}
+.btn-primary:hover{background:var(--accent-2)}
+.btn-ghost{border-color:var(--line);color:var(--text)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+.nav-links .btn{padding:8px 16px}
+.menu-btn{display:none;background:none;border:none;color:var(--text);font-size:1.5rem;cursor:pointer}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.hero::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(600px 300px at 80% 20%, rgba(245,166,35,.08), transparent 60%),
+  repeating-linear-gradient(0deg, transparent 0 47px, rgba(255,255,255,.025) 47px 48px),
+  repeating-linear-gradient(90deg, transparent 0 47px, rgba(255,255,255,.025) 47px 48px);
+  pointer-events:none}
+.hero-inner{display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:center;padding:88px 0 72px;position:relative}
+.kicker{color:var(--accent);font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:.8rem;margin-bottom:16px}
+.hero h1{font-size:clamp(2.4rem,5.5vw,4rem);font-weight:700;margin-bottom:18px}
+.hero p.lead{color:var(--muted);font-size:1.1rem;max-width:560px;margin-bottom:32px}
+.hero p.lead strong{color:var(--text);font-weight:600}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:44px}
+.stats{display:flex;gap:0;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;max-width:560px;background:var(--bg-soft)}
+.stat{flex:1;padding:18px 20px;border-right:1px solid var(--line)}
+.stat:last-child{border-right:none}
+.stat .num{font-family:'Space Grotesk',sans-serif;font-size:1.5rem;font-weight:700;color:var(--accent)}
+.stat .lbl{font-size:.78rem;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+.headshot{position:relative}
+.headshot img{border-radius:var(--radius);border:1px solid var(--line);width:100%;max-width:400px;margin-left:auto}
+.headshot::after{content:"";position:absolute;top:16px;right:-16px;bottom:-16px;left:16px;border:1px solid rgba(245,166,35,.35);border-radius:var(--radius);z-index:-1}
+
+/* ---------- Sections ---------- */
+section{padding:88px 0}
+.sec-head{margin-bottom:48px;max-width:720px}
+.sec-head h2{font-size:clamp(1.8rem,3.5vw,2.5rem);margin-bottom:12px}
+.sec-head p{color:var(--muted)}
+
+/* ---------- About ---------- */
+#about{background:var(--bg-soft);border-bottom:1px solid var(--line)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.about-grid img{border-radius:var(--radius);border:1px solid var(--line)}
+.about-copy p{color:var(--muted);margin-bottom:18px}
+.about-copy p strong{color:var(--text)}
+.focus-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.tag{padding:7px 14px;border:1px solid var(--line);border-radius:999px;font-size:.85rem;color:var(--muted);background:var(--card)}
+.tag.hot{border-color:rgba(245,166,35,.5);color:var(--accent-2)}
+
+/* ---------- Projects ---------- */
+.proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px}
+.proj-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;cursor:pointer;transition:transform .25s,border-color .25s;display:flex;flex-direction:column}
+.proj-card:hover{transform:translateY(-4px);border-color:rgba(245,166,35,.45)}
+.proj-card .thumb{aspect-ratio:16/9;overflow:hidden;background:#000;position:relative}
+.proj-card .thumb img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.proj-card:hover .thumb img{transform:scale(1.04)}
+.proj-card .body{padding:22px 24px 24px;display:flex;flex-direction:column;gap:10px;flex:1}
+.proj-tag{font-size:.74rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.proj-card h3{font-size:1.25rem}
+.proj-card .desc{color:var(--muted);font-size:.93rem;flex:1}
+.proj-meta{display:flex;justify-content:space-between;align-items:center;margin-top:8px;padding-top:14px;border-top:1px solid var(--line)}
+.proj-stat{font-family:'Space Grotesk',sans-serif;font-weight:600;color:var(--accent-2);font-size:.9rem}
+.proj-more{font-size:.85rem;color:var(--muted)}
+.proj-card:hover .proj-more{color:var(--accent)}
+
+/* ---------- Modal ---------- */
+dialog{border:none;background:transparent;padding:0;max-width:none;max-height:none;width:100%;height:100%}
+dialog::backdrop{background:rgba(5,7,10,.82);backdrop-filter:blur(6px)}
+.modal-shell{max-width:980px;margin:4vh auto;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;max-height:92vh;display:flex;flex-direction:column}
+.modal-top{display:flex;justify-content:space-between;align-items:flex-start;padding:26px 30px 0;gap:16px}
+.modal-close{background:var(--card-2);border:1px solid var(--line);color:var(--muted);width:38px;height:38px;border-radius:10px;font-size:1.1rem;cursor:pointer;flex-shrink:0}
+.modal-close:hover{color:var(--text);border-color:var(--accent)}
+.modal-body{overflow-y:auto;padding:0 30px 30px}
+.modal-body h3{font-size:1.6rem;margin-bottom:4px}
+.gallery{margin:20px 0 26px}
+.gallery .main{border-radius:12px;overflow:hidden;background:#000;border:1px solid var(--line);aspect-ratio:16/9;display:flex;align-items:center;justify-content:center}
+.gallery .main img,.gallery .main video{width:100%;height:100%;object-fit:contain}
+.gallery .thumbs{display:flex;gap:10px;margin-top:10px;overflow-x:auto;padding-bottom:4px}
+.gallery .thumbs button{flex:0 0 92px;height:60px;border-radius:8px;overflow:hidden;border:2px solid var(--line);background:#000;cursor:pointer;padding:0;position:relative}
+.gallery .thumbs button.active{border-color:var(--accent)}
+.gallery .thumbs img{width:100%;height:100%;object-fit:cover}
+.gallery .thumbs .vid-badge{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.2rem;background:rgba(0,0,0,.35)}
+.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.detail-block{margin-bottom:20px}
+.detail-block h4{font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.detail-block ul{list-style:none}
+.detail-block li{color:var(--muted);font-size:.94rem;padding-left:18px;position:relative;margin-bottom:7px}
+.detail-block li::before{content:"▸";position:absolute;left:0;color:var(--accent);font-size:.8rem;top:2px}
+.tool-chips{display:flex;flex-wrap:wrap;gap:8px}
+.tool-chips span{padding:5px 12px;background:var(--card-2);border:1px solid var(--line);border-radius:999px;font-size:.82rem;color:var(--muted)}
+
+/* ---------- Beyond ---------- */
+#beyond{background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.hobby-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.hobby{position:relative;border-radius:12px;overflow:hidden;aspect-ratio:3/3.6;border:1px solid var(--line)}
+.hobby img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.hobby:hover img{transform:scale(1.06)}
+.hobby .cap{position:absolute;left:0;right:0;bottom:0;padding:26px 12px 10px;background:linear-gradient(transparent,rgba(5,7,10,.85));font-size:.85rem;font-weight:600;font-family:'Space Grotesk',sans-serif}
+
+/* ---------- CAD gallery ---------- */
+.cad-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.cad-grid .cell{background:#000;border:1px solid var(--line);border-radius:12px;overflow:hidden;aspect-ratio:1}
+.cad-grid img{width:100%;height:100%;object-fit:contain;transition:transform .3s}
+.cad-grid .cell:hover img{transform:scale(1.07)}
+
+/* ---------- Contact / footer ---------- */
+#contact{text-align:center}
+#contact h2{font-size:clamp(1.8rem,3.5vw,2.5rem);margin-bottom:14px}
+#contact p{color:var(--muted);max-width:520px;margin:0 auto 30px}
+footer{border-top:1px solid var(--line);padding:26px 0;text-align:center;color:var(--muted);font-size:.85rem}
+
+/* ---------- Responsive ---------- */
+@media (max-width:900px){
+  .hero-inner{grid-template-columns:1fr;padding:56px 0}
+  .headshot{order:-1;max-width:300px}
+  .headshot img{margin-left:0}
+  .about-grid{grid-template-columns:1fr}
+  .proj-grid{grid-template-columns:1fr}
+  .hobby-grid{grid-template-columns:repeat(3,1fr)}
+  .cad-grid{grid-template-columns:repeat(2,1fr)}
+  .detail-grid{grid-template-columns:1fr}
+  .nav-links{display:none;position:absolute;top:64px;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--line);flex-direction:column;padding:20px;gap:18px}
+  .nav-links.open{display:flex}
+  .menu-btn{display:block}
+  .stats{flex-direction:column}
+  .stat{border-right:none;border-bottom:1px solid var(--line)}
+  .stat:last-child{border-bottom:none}
+}
+@media (max-width:560px){
+  .hobby-grid{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a class="logo" href="#top">CADEN<span>SOLLE</span></a>
+    <button class="menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#beyond">Beyond Engineering</a>
+      <a href="#cad">CAD Gallery</a>
+      <a class="btn btn-primary" href="media/Caden%20Solle%20SpaceX%202026%20Resume.pdf" target="_blank">Resume</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap hero-inner">
+    <div>
+      <div class="kicker">Honors Mechanical Engineering · Liberty University</div>
+      <h1>Caden Solle</h1>
+      <p class="lead">Junior Honors Mechanical Engineering student with a <strong>4.0 GPA</strong>, graduating <strong>May 2027</strong>. Passionate about <strong>unmanned aerial systems</strong>, <strong>aerospace</strong>, problem-solving, and <strong>defense technology</strong>.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#projects">View Projects</a>
+        <a class="btn btn-ghost" href="media/Caden%20Solle%20Engineering%20Portfolio%202026.pdf" target="_blank">Full Portfolio (PDF)</a>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="num">4.0</div><div class="lbl">GPA</div></div>
+        <div class="stat"><div class="num">10+</div><div class="lbl">Engineering Projects</div></div>
+        <div class="stat"><div class="num">2027</div><div class="lbl">Graduation</div></div>
+      </div>
+    </div>
+    <div class="headshot">
+      <img src="media/Best%20Headshot.png" alt="Caden Solle headshot">
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap about-grid">
+    <img src="media/image2.png" alt="Caden Solle" loading="lazy">
+    <div class="about-copy">
+      <div class="kicker">About Me</div>
+      <h2 style="font-size:clamp(1.8rem,3.5vw,2.4rem);margin-bottom:18px">Engineering driven by flight, iteration, and hands-on building</h2>
+      <p>Hello! My name is Caden Solle, and I'm a junior Honors Mechanical Engineering student at <strong>Liberty University</strong> with a 4.0 GPA, projected to graduate in May 2027.</p>
+      <p>From designing and tuning my own FPV drones to leading a laser-engraving rocket payload and optimizing Formula SAE aerodynamics in CFD, I love taking a project from concept through CAD, simulation, fabrication, and flight — learning from every crash and rebuild along the way.</p>
+      <div class="focus-tags">
+        <span class="tag hot">Unmanned Aerial Systems</span>
+        <span class="tag hot">Aerospace</span>
+        <span class="tag hot">Defense Technology</span>
+        <span class="tag">SolidWorks</span>
+        <span class="tag">ANSYS Fluent</span>
+        <span class="tag">MATLAB</span>
+        <span class="tag">3D Printing</span>
+        <span class="tag">Composites</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Selected Work</div>
+      <h2>Engineering Projects</h2>
+      <p>Personal builds, team leadership roles, undergraduate research, and coursework — click any project for the full breakdown.</p>
+    </div>
+    <div class="proj-grid" id="projGrid"></div>
+  </div>
+</section>
+
+<section id="beyond">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Beyond Engineering</div>
+      <h2>Life outside the lab</h2>
+      <p>Here's a look at what I enjoy doing outside of engineering.</p>
+    </div>
+    <div class="hobby-grid">
+      <div class="hobby"><img src="media/image11.jpeg" alt="Drone photography" loading="lazy"><div class="cap">Drone Photography</div></div>
+      <div class="hobby"><img src="media/image10.jpeg" alt="Hiking" loading="lazy"><div class="cap">Hiking</div></div>
+      <div class="hobby"><img src="media/image5.jpeg" alt="Golfing" loading="lazy"><div class="cap">Golfing</div></div>
+      <div class="hobby"><img src="media/image7.jpeg" alt="Traveling" loading="lazy"><div class="cap">Traveling</div></div>
+      <div class="hobby"><img src="media/image6.jpeg" alt="Skydiving" loading="lazy"><div class="cap">Skydiving</div></div>
+      <div class="hobby"><img src="media/image12.jpeg" alt="Soccer" loading="lazy"><div class="cap">Soccer</div></div>
+      <div class="hobby"><img src="media/image3.jpeg" alt="Saxophone" loading="lazy"><div class="cap">Saxophone</div></div>
+      <div class="hobby"><img src="media/image4.jpeg" alt="Volunteering" loading="lazy"><div class="cap">Volunteering</div></div>
+      <div class="hobby"><img src="media/image8.jpeg" alt="Cooking" loading="lazy"><div class="cap">Cooking</div></div>
+      <div class="hobby"><img src="media/image9.jpeg" alt="Lifting" loading="lazy"><div class="cap">Lifting</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="cad">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">CAD Gallery</div>
+      <h2>Various 3D Models</h2>
+      <p>A selection of parts and assemblies modeled in SolidWorks.</p>
+    </div>
+    <div class="cad-grid">
+      <div class="cell"><img src="media/image54.png" alt="Formula SAE car model" loading="lazy"></div>
+      <div class="cell"><img src="media/image50.png" alt="Motor assembly model" loading="lazy"></div>
+      <div class="cell"><img src="media/image51.png" alt="Mechanism model" loading="lazy"></div>
+      <div class="cell"><img src="media/image53.png" alt="Structural ramp model" loading="lazy"></div>
+      <div class="cell"><img src="media/image55.png" alt="Bracket model" loading="lazy"></div>
+      <div class="cell"><img src="media/image56.png" alt="Mount model" loading="lazy"></div>
+      <div class="cell"><img src="media/image57.png" alt="Threaded insert model" loading="lazy"></div>
+      <div class="cell"><img src="media/image52.png" alt="Hand tool model" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="kicker">Get In Touch</div>
+    <h2>Let's build something that flies</h2>
+    <p>I'm always excited to talk about UAS, aerospace, and defense technology — or internship and research opportunities.</p>
+    <a class="btn btn-primary" href="mailto:csolle1@liberty.edu">csolle1@liberty.edu</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">© 2026 Caden Solle · Honors Mechanical Engineering, Liberty University</div>
+</footer>
+
+<dialog id="projModal">
+  <div class="modal-shell">
+    <div class="modal-top">
+      <div>
+        <div class="proj-tag" id="mTag"></div>
+        <h3 id="mTitle" style="font-family:'Space Grotesk',sans-serif;font-size:1.6rem"></h3>
+      </div>
+      <button class="modal-close" onclick="document.getElementById('projModal').close()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="gallery">
+        <div class="main" id="mMain"></div>
+        <div class="thumbs" id="mThumbs"></div>
+      </div>
+      <div id="mDetails"></div>
+    </div>
+  </div>
+</dialog>
+
+<script>
+const projects = [
+  {
+    tag: "Personal Project",
+    title: "Racing / Freestyle FPV Drone",
+    desc: "Custom-built and tuned freestyle FPV drone — component selection, soldering, firmware, and iterative flight tuning.",
+    stat: "100+ mph",
+    media: [
+      {type:"img", src:"media/image13.jpeg"},
+      {type:"img", src:"media/image14.jpeg"},
+      {type:"video", src:"media/media1.mp4"},
+      {type:"img", src:"media/image15.jpeg"}
+    ],
+    objective: ["Design, build, and tune a custom freestyle FPV drone as an engineering challenge and to improve my flight skills"],
+    constraints: ["Component compatibility across the flight controller, ESCs, PDB, and firmware","Self-sourced components with a limited budget"],
+    approach: ["Selected and sourced all major components, including a carbon fiber frame, motors, ESCs, PDB, flight controller, VTX, and camera","Assembled and soldered the power and signal connections","Configured firmware and flight parameters using Betaflight","Performed iterative tuning through test flights and crashes"],
+    tools: ["Soldering iron & hand tools","Betaflight Configurator","Multimeter"],
+    results: ["Achieved stable, responsive flight performance","Improved my flying skills drastically (I'm still a thumb flyer, not a pincher though)","Reached speeds of over 100 mph"],
+    challenge: ["Managing current loads — an early failure I had was burned ESCs"],
+    next: ["Better VTX cooling, as it got extremely hot during flight"]
+  },
+  {
+    tag: "Personal Project",
+    title: "Fixed-Wing Pusher-Prop UAV",
+    desc: "3D-printed fixed-wing UAV built for stable autonomous payload deployment using INAV — six test flights, crashes, and rebuilds in.",
+    stat: "4.3 lb target mass",
+    media: [
+      {type:"img", src:"media/image19.jpeg"},
+      {type:"img", src:"media/image20.jpeg"},
+      {type:"img", src:"media/image18.jpeg"},
+      {type:"img", src:"media/image17.jpeg"},
+      {type:"img", src:"media/image16.jpeg"},
+      {type:"video", src:"media/media2.mp4"}
+    ],
+    objective: ["Build a 3D-printed, easy-to-fly fixed-wing UAV intended for stable autonomous payload deployment using INAV"],
+    constraints: ["Target mass of 4.3 pounds","All parts 3D-printed apart from electronics and carbon fiber spars","No prior fixed-wing flight experience"],
+    approach: ["Researched and selected propulsion, avionics, and RF components suited for long-range fixed-wing flight","Printed the airframe and structural components","Assembled the airframe and wiring harness","Performed testing and preflight checks","Initial flight"],
+    tools: ["SolidWorks","Bambu Lab X1C 3D printer","INAV","Soldering iron, multimeter & hand tools"],
+    results: ["This project is still ongoing — there have been approximately 6 test flights, crashes, and rebuilds","It is getting closer and closer to flying successfully"],
+    challenge: ["Besides the obvious challenge of flight, there were a lot of bed-adhesion issues with the larger printed components"],
+    next: ["Currently building a cheap foam flying wing, because the issue may just be pilot error"]
+  },
+  {
+    tag: "Liberty Rocketry · Payload Lead",
+    title: "Galvanometric Laser Engraver",
+    desc: "Compact laser-engraving payload designed to operate during a suborbital rocketry mission — optics, packaging, and a custom PCB.",
+    stat: "Engraved in flight form factor",
+    media: [
+      {type:"img", src:"media/image21.png"},
+      {type:"img", src:"media/image22.png"},
+      {type:"img", src:"media/image24.png"},
+      {type:"img", src:"media/image23.png"}
+    ],
+    objective: ["Design and integrate a compact galvanometric laser engraving payload capable of operation during a suborbital rocketry mission"],
+    constraints: ["Mass and volume limits for payload integration","High-vibration and acceleration launch environment","Limited onboard power"],
+    approach: ["Chose a dual-axis galvanometer system to steer the laser beam","Laid out optics to achieve the required engrave area within the payload","Designed mechanical packaging around the required form factor","Created a custom PCB to distribute power using EasyEDA"],
+    tools: ["SolidWorks","EasyEDA (PCB design)","Waterjet","Bambu Lab X1C 3D printer"],
+    results: ["Successfully able to engrave numerous images onto a wooden sample","Fit the size and weight constraints"],
+    challenge: ["Fitting all of the components into the required form factor while preserving serviceability"],
+    next: ["Improve the mirror movement hardware to make a more precise image"]
+  },
+  {
+    tag: "Formula SAE · Aerodynamics Engineer",
+    title: "Formula SAE Rear Wing Design",
+    desc: "Full 3D rear wing designed and optimized in CFD to maximize downforce in corners without a permanent drag penalty.",
+    stat: "CL −1.525 · CD 0.557",
+    media: [
+      {type:"img", src:"media/image28.png"},
+      {type:"img", src:"media/image25.png"},
+      {type:"img", src:"media/image26.png"},
+      {type:"img", src:"media/image27.png"}
+    ],
+    objective: ["Design and optimize a full 3D rear wing to generate meaningful downforce while minimizing drag penalties during cornering and straight-line operation"],
+    constraints: ["Low-speed corners due to engine and car constraints","Geometry and mounting must be compatible with all FSAE rules","Must be manufacturable with current capabilities"],
+    approach: ["Full 3D rear wing designed using the Selig S1223 airfoil","Angle-of-attack optimization performed to identify best L/D","Adjustable flaps incorporated to vary downforce and drag","Aerodynamic performance evaluated using lift and drag coefficients"],
+    tools: ["SolidWorks (3D wing geometry & assembly)","ANSYS Fluent (3D fluid-flow simulations)"],
+    results: ["Achieved CL of −1.525 and CD of 0.557 in the optimized configuration","Identified 7° angle of attack as the optimal L/D for the Selig S1223","Adjustable elements enable 4× less drag on acceleration runs","Supports high downforce in corners without permanent drag cost"],
+    challenge: ["Managing drag while placing more emphasis on downforce"],
+    next: ["Active drag-reduction system to provide optimal performance at all times"]
+  },
+  {
+    tag: "Undergraduate Research",
+    title: "Split-Hopkinson Pressure Bar",
+    desc: "High-strain-rate material testing on a custom-built SHPB — observation box design, strain gauge instrumentation, and data analysis.",
+    stat: "Dynamic impact data captured",
+    media: [
+      {type:"img", src:"media/image32.jpeg"},
+      {type:"video", src:"media/media3.mp4"},
+      {type:"img", src:"media/image29.png"},
+      {type:"img", src:"media/image30.png"}
+    ],
+    objective: ["Support high-strain-rate material testing of various samples using a custom-built Split-Hopkinson Pressure Bar (SHPB)"],
+    constraints: ["Safe observation of sample behavior during impact","Extremely precise measurements needed to get usable data"],
+    approach: ["Designed and built a sample observation box compatible with the SHPB setup","Installed and wired strain gauges for dynamic strain measurement","Developed a custom lift system to provide a perfectly level surface to support the bars","Assisted with experimental setup and alignment, as well as data analysis"],
+    tools: ["SolidWorks","Scanning Electron Microscope","Lathe","Linescan Extensometer"],
+    results: ["Successfully captured stress and strain data during dynamic impact tests"],
+    challenge: ["Ensuring the two tables the bars lay on are perfectly level so the tests aren't disrupted"],
+    next: ["Currently running tests on meteor crater rock from Arizona to present at an SEM conference"]
+  },
+  {
+    tag: "Formula SAE · Aerodynamics Engineer",
+    title: "Carbon Fiber Manufacturing",
+    desc: "In-house carbon fiber components for the FSAE car — from wet layup to vacuum infusion for better finish and repeatability.",
+    stat: "−4.5 lb car weight",
+    media: [
+      {type:"img", src:"media/image36.jpeg"},
+      {type:"img", src:"media/image33.jpeg"},
+      {type:"img", src:"media/image34.jpeg"},
+      {type:"img", src:"media/image35.jpeg"}
+    ],
+    objective: ["Develop lightweight, strong carbon fiber components for a Formula SAE race car in-house while improving manufacturing quality, repeatability, and surface finish"],
+    constraints: ["Limited budget and student team resources","Tight competition deadlines","Consistent part quality across various-sized components"],
+    approach: ["Design parts in CAD to meet structural and aerodynamic requirements (side panels, nosecone, sidepods, undertray, etc.)","Create positive and then negative molds","Started with wet layup, later transitioned to vacuum infusion to improve surface finish and consistency","Cured and removed parts from molds","Trimmed, finished, and polished components"],
+    tools: ["SolidWorks","ANSYS Fluent","Vacuum pump, sanding & polishing equipment"],
+    results: ["Successfully manufactured numerous carbon fiber vehicle components, reducing car weight by 4.5 pounds"],
+    challenge: ["Creating molds without a CNC"],
+    next: ["Pre-preg carbon fiber, as well as a CNC to drastically decrease mold-creation time"]
+  },
+  {
+    tag: "Honors Project · Fluid Dynamics",
+    title: "Multi-Element Wing CFD Optimization",
+    desc: "Parametric 2D three-element rear wing study — 27 configurations simulated to balance downforce and efficiency at low speeds.",
+    stat: "27 configs · +17% efficiency",
+    media: [
+      {type:"img", src:"media/image38.png"},
+      {type:"img", src:"media/image39.png"},
+      {type:"img", src:"media/image37.png"}
+    ],
+    objective: ["Optimize a 2D three-element rear wing for a Formula SAE car to maximize downforce at low speeds while maintaining acceptable aerodynamic efficiency"],
+    constraints: ["Formula SAE-realistic geometry and simulation conditions","Low Reynolds number operation","Manufacturable configuration"],
+    approach: ["Parametric 2D three-element wing using modified Selig S1223 airfoils","Realistic chord ratios, gaps, and overlaps found from research","27 configurations tested","Mesh and solver validated against published lift data","Aerodynamic performance assessed via CL, CD, and L/D"],
+    tools: ["SolidWorks (parametric geometry)","ANSYS Fluent (2D steady-state simulations)"],
+    results: ["The LMH configuration was the optimal balance of downforce and efficiency","Near-maximum downforce while having 17% higher efficiency than the most aggressive setup"],
+    challenge: ["Accurately capturing slot-flow interaction and separation behavior"],
+    next: ["3D wing with endplates"]
+  },
+  {
+    tag: "Thermodynamics II",
+    title: "Stirling-Engine Powered Car",
+    desc: "Small self-propelled car powered by a Stirling engine — thermal-to-kinetic energy conversion with 3D-printed drivetrain.",
+    stat: "7+ print iterations per part",
+    media: [
+      {type:"img", src:"media/image40.png"},
+      {type:"img", src:"media/image41.png"},
+      {type:"img", src:"media/image42.png"},
+      {type:"img", src:"media/image43.jpeg"},
+      {type:"video", src:"media/media4.mp4"}
+    ],
+    objective: ["Design and build a small Stirling engine-powered car capable of self-propelled motion to demonstrate the conversion of thermal energy to kinetic energy"],
+    constraints: ["Extremely low power and torque output from a Stirling engine","Rapid heat loss to the environment","Small vehicle size and tight packaging"],
+    approach: ["Chose a denatured-alcohol flame as the heat source to maximize thermal energy","The power delivery, flywheel, car body, and wheels were all designed in SolidWorks and then 3D-printed","There was a ton of iteration — each part was printed at least 7 times before the final car was built"],
+    tools: ["SolidWorks","Bambu Lab X1C 3D printer"],
+    results: ["Achieved a functional car with a terrible efficiency (<1%)","Successfully demonstrated how energy conversion works in real life"],
+    challenge: ["Transferring the Stirling engine motion into usable wheel movement due to the lack of torque and abundance of friction"],
+    next: ["Develop an ice box for the cold side of the engine, and create a reflective box around the hot side to minimize heat loss"]
+  },
+  {
+    tag: "Heat Transfer",
+    title: "Heat Exchanger CFD Optimization",
+    desc: "Shell-and-tube heat exchanger optimized across hundreds of millions of geometries in MATLAB, validated with ANSYS Fluent CFD.",
+    stat: "1624 W/m²K · $1,840/yr",
+    media: [
+      {type:"img", src:"media/image44.jpeg"},
+      {type:"img", src:"media/image45.png"},
+      {type:"img", src:"media/image46.png"}
+    ],
+    objective: ["Design a shell-and-tube heat exchanger that meets client-specified thermal performance requirements while minimizing equivalent annual cost"],
+    constraints: ["Fixed inlet mass flow rates and temperatures for hot and cold water","Overall heat transfer coefficient within the specified range","Length between 1–10 m","Limited computational resources for full-scale CFD"],
+    approach: ["Developed MATLAB scripts to iterate hundreds of millions of heat exchanger geometries","Used conditional logic to enforce geometric, thermal, and economic constraints","Selected optimal designs based on minimum equivalent annual cost","Validated analytical results using ANSYS Fluent, and conducted a full mesh independence study to ensure CFD result credibility"],
+    tools: ["SolidWorks","ANSYS Fluent","MATLAB"],
+    results: ["The optimized heat exchanger had a length of 6.4 meters with 196 copper tubes, a heat transfer coefficient of 1624 W/m²K, and an annual cost of $1,840","14.03% error between the hand calculations and CFD"],
+    challenge: ["Full CFD simulation with baffles was extremely challenging due to mesh size and solver computational power limitations"],
+    next: ["Include fouling and long-term degradation"]
+  },
+  {
+    tag: "Statics",
+    title: "Popsicle Stick Truss Bridge",
+    desc: "Warren-style truss bridge designed in CAD, validated in ANSYS and by hand calcs, and built with jigs — held over 2000 N.",
+    stat: "8957 N theoretical capacity",
+    media: [
+      {type:"img", src:"media/image48.png"},
+      {type:"img", src:"media/image47.png"},
+      {type:"img", src:"media/image49.jpeg"},
+      {type:"video", src:"media/media5.mp4"}
+    ],
+    objective: ["Design and build a lightweight, efficient truss bridge using popsicle sticks that can withstand an applied load while meeting strict size and material constraints"],
+    constraints: ["Popsicle sticks and super glue are the only allowable materials","No stick shortening allowed","Strict geometric and surface-area rules","Withstand at least 2000 Newtons"],
+    approach: ["Researched common truss types and selected the Warren style for efficient load distribution","Created multiple design iterations in CAD and ran SolidWorks structural simulations to identify weak members and deformation","Added layers and bracing where stress concentrations appeared","Validated the design using hand calculations and ANSYS simulation","Manufactured the bridge using clamps and alignment jigs"],
+    tools: ["SolidWorks (design & simulation)","ANSYS Structural"],
+    results: ["Withstood over 2000 Newtons — theoretically capable of withstanding 8957 Newtons","Final bridge mass of 317.6 grams"],
+    challenge: ["Balancing the constraints with the strength requirements; adding bracing improved strength but risked violating surface-area constraints"],
+    next: ["Earlier constraint checks during design changes"]
+  }
+];
+
+const grid = document.getElementById('projGrid');
+projects.forEach((p, i) => {
+  const card = document.createElement('article');
+  card.className = 'proj-card';
+  const cover = p.media.find(m => m.type === 'img').src;
+  card.innerHTML = `
+    <div class="thumb"><img src="${cover}" alt="${p.title}" loading="lazy"></div>
+    <div class="body">
+      <div class="proj-tag">${p.tag}</div>
+      <h3>${p.title}</h3>
+      <p class="desc">${p.desc}</p>
+      <div class="proj-meta">
+        <span class="proj-stat">${p.stat}</span>
+        <span class="proj-more">Details →</span>
+      </div>
+    </div>`;
+  card.addEventListener('click', () => openProject(i));
+  grid.appendChild(card);
+});
+
+const modal = document.getElementById('projModal');
+function openProject(i){
+  const p = projects[i];
+  document.getElementById('mTag').textContent = p.tag;
+  document.getElementById('mTitle').textContent = p.title;
+  const thumbs = document.getElementById('mThumbs');
+  thumbs.innerHTML = '';
+  p.media.forEach((m, j) => {
+    const b = document.createElement('button');
+    if (m.type === 'img') {
+      b.innerHTML = `<img src="${m.src}" alt="">`;
+    } else {
+      b.innerHTML = `<video src="${m.src}#t=0.1" muted preload="metadata"></video><span class="vid-badge">▶</span>`;
+      b.querySelector('video').style.cssText = 'width:100%;height:100%;object-fit:cover';
+    }
+    b.addEventListener('click', () => showMedia(p, j));
+    thumbs.appendChild(b);
+  });
+  showMedia(p, 0);
+  const block = (title, items) => items && items.length ? `
+    <div class="detail-block"><h4>${title}</h4><ul>${items.map(x=>`<li>${x}</li>`).join('')}</ul></div>` : '';
+  document.getElementById('mDetails').innerHTML = `
+    <div class="detail-grid">
+      <div>
+        ${block('Objective', p.objective)}
+        ${block('Approach', p.approach)}
+        ${block('Results', p.results)}
+      </div>
+      <div>
+        ${block('Constraints', p.constraints)}
+        <div class="detail-block"><h4>Tools</h4><div class="tool-chips">${p.tools.map(t=>`<span>${t}</span>`).join('')}</div></div>
+        ${block('Key Challenge', p.challenge)}
+        ${block("What I'd Improve Next", p.next)}
+      </div>
+    </div>`;
+  modal.showModal();
+  modal.querySelector('.modal-body').scrollTop = 0;
+}
+function showMedia(p, j){
+  const m = p.media[j];
+  const main = document.getElementById('mMain');
+  main.innerHTML = m.type === 'img'
+    ? `<img src="${m.src}" alt="${p.title}">`
+    : `<video src="${m.src}" controls autoplay muted loop playsinline></video>`;
+  document.querySelectorAll('#mThumbs button').forEach((b, k) => b.classList.toggle('active', k === j));
+}
+modal.addEventListener('click', e => { if (e.target === modal) modal.close(); });
+modal.addEventListener('close', () => { document.getElementById('mMain').innerHTML = ''; });
+
+document.querySelectorAll('.nav-links a').forEach(a =>
+  a.addEventListener('click', () => document.querySelector('.nav-links').classList.remove('open')));
+</script>
+</body>
+</html>
