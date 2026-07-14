@@ -10,15 +10,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#0b0e13;
-  --bg-soft:#11151d;
-  --card:#151a24;
-  --card-2:#1a2130;
-  --line:#242c3d;
-  --text:#e8ecf4;
-  --muted:#93a0b4;
-  --accent:#f5a623;
-  --accent-2:#ffd27a;
+  --bg:#0c0c0e;
+  --bg-soft:#141416;
+  --card:#1a1a1d;
+  --card-2:#232327;
+  --line:#2f2f35;
+  --text:#f3f3f5;
+  --muted:#b3b3bc;
+  --accent:#e11d29;
+  --accent-2:#ff5a63;
+  --accent-hover:#b8101c;
   --radius:14px;
 }
 *{margin:0;padding:0;box-sizing:border-box}
@@ -30,7 +31,7 @@ a{color:var(--accent);text-decoration:none}
 .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
 
 /* ---------- Nav ---------- */
-nav{position:sticky;top:0;z-index:50;background:rgba(11,14,19,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav{position:sticky;top:0;z-index:50;background:rgba(12,12,14,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
 .logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.15rem;color:var(--text);letter-spacing:.02em}
 .logo span{color:var(--accent)}
@@ -38,8 +39,8 @@ nav{position:sticky;top:0;z-index:50;background:rgba(11,14,19,.85);backdrop-filt
 .nav-links a{color:var(--muted);font-size:.92rem;font-weight:500;transition:color .2s}
 .nav-links a:hover{color:var(--text)}
 .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:10px;font-weight:600;font-size:.92rem;transition:all .2s;border:1px solid transparent;cursor:pointer}
-.btn-primary{background:var(--accent);color:#14100a}
-.btn-primary:hover{background:var(--accent-2)}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-hover)}
 .btn-ghost{border-color:var(--line);color:var(--text)}
 .btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
 .nav-links .btn{padding:8px 16px}
@@ -48,7 +49,7 @@ nav{position:sticky;top:0;z-index:50;background:rgba(11,14,19,.85);backdrop-filt
 /* ---------- Hero ---------- */
 .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
 .hero::before{content:"";position:absolute;inset:0;background:
-  radial-gradient(600px 300px at 80% 20%, rgba(245,166,35,.08), transparent 60%),
+  radial-gradient(600px 300px at 80% 20%, rgba(225,29,41,.12), transparent 60%),
   repeating-linear-gradient(0deg, transparent 0 47px, rgba(255,255,255,.025) 47px 48px),
   repeating-linear-gradient(90deg, transparent 0 47px, rgba(255,255,255,.025) 47px 48px);
   pointer-events:none}
@@ -65,7 +66,7 @@ nav{position:sticky;top:0;z-index:50;background:rgba(11,14,19,.85);backdrop-filt
 .stat .lbl{font-size:.78rem;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
 .headshot{position:relative}
 .headshot img{border-radius:var(--radius);border:1px solid var(--line);width:100%;max-width:400px;margin-left:auto}
-.headshot::after{content:"";position:absolute;top:16px;right:-16px;bottom:-16px;left:16px;border:1px solid rgba(245,166,35,.35);border-radius:var(--radius);z-index:-1}
+.headshot::after{content:"";position:absolute;top:16px;right:-16px;bottom:-16px;left:16px;border:1px solid rgba(225,29,41,.45);border-radius:var(--radius);z-index:-1}
 
 /* ---------- Sections ---------- */
 section{padding:88px 0}
@@ -81,12 +82,12 @@ section{padding:88px 0}
 .about-copy p strong{color:var(--text)}
 .focus-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
 .tag{padding:7px 14px;border:1px solid var(--line);border-radius:999px;font-size:.85rem;color:var(--muted);background:var(--card)}
-.tag.hot{border-color:rgba(245,166,35,.5);color:var(--accent-2)}
+.tag.hot{border-color:rgba(225,29,41,.55);color:var(--accent-2)}
 
 /* ---------- Projects ---------- */
 .proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px}
 .proj-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;cursor:pointer;transition:transform .25s,border-color .25s;display:flex;flex-direction:column}
-.proj-card:hover{transform:translateY(-4px);border-color:rgba(245,166,35,.45)}
+.proj-card:hover{transform:translateY(-4px);border-color:rgba(225,29,41,.5)}
 .proj-card .thumb{aspect-ratio:16/9;overflow:hidden;background:#000;position:relative}
 .proj-card .thumb img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
 .proj-card:hover .thumb img{transform:scale(1.04)}
@@ -171,7 +172,7 @@ footer{border-top:1px solid var(--line);padding:26px 0;text-align:center;color:v
 
 <nav>
   <div class="wrap nav-inner">
-    <a class="logo" href="#top">CADEN<span>SOLLE</span></a>
+    <a class="logo" href="#top">CADEN&nbsp;<span>SOLLE</span></a>
     <button class="menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
     <div class="nav-links">
       <a href="#about">About</a>
@@ -188,9 +189,10 @@ footer{border-top:1px solid var(--line);padding:26px 0;text-align:center;color:v
     <div>
       <div class="kicker">Honors Mechanical Engineering · Liberty University</div>
       <h1>Caden Solle</h1>
-      <p class="lead">Junior Honors Mechanical Engineering student with a <strong>4.0 GPA</strong>, graduating <strong>May 2027</strong>. Passionate about <strong>unmanned aerial systems</strong>, <strong>aerospace</strong>, problem-solving, and <strong>defense technology</strong>.</p>
+      <p class="lead">Senior Honors Mechanical Engineering student with a <strong>4.0 GPA</strong>, graduating <strong>May 2027</strong>. Passionate about <strong>unmanned aerial systems</strong>, <strong>aerospace</strong>, problem-solving, and <strong>defense technology</strong>.</p>
       <div class="hero-cta">
         <a class="btn btn-primary" href="#projects">View Projects</a>
+        <a class="btn btn-ghost" href="media/Caden%20Solle%20SpaceX%202026%20Resume.pdf" target="_blank" download>Download Resume</a>
         <a class="btn btn-ghost" href="media/Caden%20Solle%20Engineering%20Portfolio%202026.pdf" target="_blank">Full Portfolio (PDF)</a>
       </div>
       <div class="stats">
@@ -211,8 +213,8 @@ footer{border-top:1px solid var(--line);padding:26px 0;text-align:center;color:v
     <div class="about-copy">
       <div class="kicker">About Me</div>
       <h2 style="font-size:clamp(1.8rem,3.5vw,2.4rem);margin-bottom:18px">Engineering driven by flight, iteration, and hands-on building</h2>
-      <p>Hello! My name is Caden Solle, and I'm a junior Honors Mechanical Engineering student at <strong>Liberty University</strong> with a 4.0 GPA, projected to graduate in May 2027.</p>
-      <p>From designing and tuning my own FPV drones to leading a laser-engraving rocket payload and optimizing Formula SAE aerodynamics in CFD, I love taking a project from concept through CAD, simulation, fabrication, and flight — learning from every crash and rebuild along the way.</p>
+      <p>Hello! My name is Caden Solle, and I'm a senior Honors Mechanical Engineering student at <strong>Liberty University</strong> with a 4.0 GPA, projected to graduate in May 2027.</p>
+      <p>I've designed and tuned my own FPV drones, led the development of a laser-engraving rocket payload, and used CFD to improve a Formula SAE aero package. I enjoy being involved in the full process, from CAD and simulation to building, testing, and fixing whatever breaks.</p>
       <div class="focus-tags">
         <span class="tag hot">Unmanned Aerial Systems</span>
         <span class="tag hot">Aerospace</span>
@@ -285,7 +287,11 @@ footer{border-top:1px solid var(--line);padding:26px 0;text-align:center;color:v
     <div class="kicker">Get In Touch</div>
     <h2>Let's build something that flies</h2>
     <p>I'm always excited to talk about UAS, aerospace, and defense technology — or internship and research opportunities.</p>
-    <a class="btn btn-primary" href="mailto:csolle1@liberty.edu">csolle1@liberty.edu</a>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+      <a class="btn btn-primary" href="mailto:csolle1@liberty.edu">csolle1@liberty.edu</a>
+      <!-- TODO: replace href with Caden's real LinkedIn profile URL -->
+      <a class="btn btn-ghost" id="linkedinBtn" href="#" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
   </div>
 </section>
 
@@ -320,10 +326,9 @@ const projects = [
     desc: "Custom-built and tuned freestyle FPV drone — component selection, soldering, firmware, and iterative flight tuning.",
     stat: "100+ mph",
     media: [
-      {type:"img", src:"media/image13.jpeg"},
       {type:"img", src:"media/image14.jpeg"},
-      {type:"video", src:"media/media1.mp4"},
-      {type:"img", src:"media/image15.jpeg"}
+      {type:"img", src:"media/image13.jpeg"},
+      {type:"video", src:"media/media1.mp4"}
     ],
     objective: ["Design, build, and tune a custom freestyle FPV drone as an engineering challenge and to improve my flight skills"],
     constraints: ["Component compatibility across the flight controller, ESCs, PDB, and firmware","Self-sourced components with a limited budget"],
@@ -339,11 +344,11 @@ const projects = [
     desc: "3D-printed fixed-wing UAV built for stable autonomous payload deployment using INAV — six test flights, crashes, and rebuilds in.",
     stat: "4.3 lb target mass",
     media: [
-      {type:"img", src:"media/image19.jpeg"},
-      {type:"img", src:"media/image20.jpeg"},
       {type:"img", src:"media/image18.jpeg"},
+      {type:"img", src:"media/image19.jpeg"},
       {type:"img", src:"media/image17.jpeg"},
       {type:"img", src:"media/image16.jpeg"},
+      {type:"img", src:"media/image20.jpeg"},
       {type:"video", src:"media/media2.mp4"}
     ],
     objective: ["Build a 3D-printed, easy-to-fly fixed-wing UAV intended for stable autonomous payload deployment using INAV"],
@@ -358,7 +363,7 @@ const projects = [
     tag: "Liberty Rocketry · Payload Lead",
     title: "Galvanometric Laser Engraver",
     desc: "Compact laser-engraving payload designed to operate during a suborbital rocketry mission — optics, packaging, and a custom PCB.",
-    stat: "Engraved in flight form factor",
+    stat: "Flight-ready laser payload",
     media: [
       {type:"img", src:"media/image21.png"},
       {type:"img", src:"media/image22.png"},
@@ -454,10 +459,10 @@ const projects = [
     desc: "Small self-propelled car powered by a Stirling engine — thermal-to-kinetic energy conversion with 3D-printed drivetrain.",
     stat: "7+ print iterations per part",
     media: [
+      {type:"img", src:"media/image43.jpeg"},
       {type:"img", src:"media/image40.png"},
       {type:"img", src:"media/image41.png"},
       {type:"img", src:"media/image42.png"},
-      {type:"img", src:"media/image43.jpeg"},
       {type:"video", src:"media/media4.mp4"}
     ],
     objective: ["Design and build a small Stirling engine-powered car capable of self-propelled motion to demonstrate the conversion of thermal energy to kinetic energy"],
@@ -472,7 +477,7 @@ const projects = [
     tag: "Heat Transfer",
     title: "Heat Exchanger CFD Optimization",
     desc: "Shell-and-tube heat exchanger optimized across hundreds of millions of geometries in MATLAB, validated with ANSYS Fluent CFD.",
-    stat: "1624 W/m²K · $1,840/yr",
+    stat: "$1,840/yr optimized cost",
     media: [
       {type:"img", src:"media/image44.jpeg"},
       {type:"img", src:"media/image45.png"},
