@@ -77,7 +77,8 @@ section{padding:88px 0}
 /* ---------- About ---------- */
 #about{background:var(--bg-soft);border-bottom:1px solid var(--line)}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
-.about-grid img{border-radius:var(--radius);border:1px solid var(--line)}
+.about-photo{position:relative;aspect-ratio:3/4;overflow:hidden;border-radius:var(--radius);border:1px solid var(--line);background:#000}
+.about-photo img{position:absolute;top:50%;left:50%;width:150%;max-width:none;height:auto;transform:translate(-50%,-50%)}
 .about-copy p{color:var(--muted);margin-bottom:18px}
 .about-copy p strong{color:var(--text)}
 .focus-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
@@ -209,7 +210,9 @@ footer{border-top:1px solid var(--line);padding:26px 0;text-align:center;color:v
 
 <section id="about">
   <div class="wrap about-grid">
-    <img src="media/image2.png" alt="Caden Solle" loading="lazy">
+    <div class="about-photo">
+      <img src="media/image2.png" alt="Caden Solle" loading="lazy">
+    </div>
     <div class="about-copy">
       <div class="kicker">About Me</div>
       <h2 style="font-size:clamp(1.8rem,3.5vw,2.4rem);margin-bottom:18px">Engineering driven by flight, iteration, and hands-on building</h2>
